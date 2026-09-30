@@ -1,0 +1,52 @@
+# Netlify Configuration File for YS PEB Design Studio & Consultants
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Command to run for production build
+  command = "npm run build"
+  
+  # Directory containing the deploy-ready build artifacts
+  publish = "dist"
+
+[build.environment]
+  # Set Node.js version
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Single-Page Application (SPA) redirect rule
+# Ensures all routes, subpaths, and refreshes resolve to index.html with 200 status
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security & Optimization Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache immutable Vite hashed assets for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache standard static images and favicon
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

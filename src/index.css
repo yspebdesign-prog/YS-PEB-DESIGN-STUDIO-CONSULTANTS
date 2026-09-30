@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .font-body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .font-mono-spec {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .bg-grid-blueprint {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  }
+
+  .bg-grid-cad {
+    background-size: 16px 16px;
+    background-image: 
+      linear-gradient(to right, rgba(38, 99, 235, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 99, 235, 0.06) 1px, transparent 1px);
+  }
+
+  .bg-dot-matrix {
+    background-size: 24px 24px;
+    background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0b1320;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
